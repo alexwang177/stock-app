@@ -7,12 +7,15 @@ export default function StockChart(props) {
         console.log(props.text)
     }, [props.text])
 
-    const tickers = Object.keys(props.stockMap).map((key) => {
+    const tickers = props.stockMap == null ? null : Object.keys(props.stockMap).map((key) => {
         return key.startsWith(props.text.toUpperCase()) ? (
             <div>
                 <Link to={`/stock/${key}`}>
                     <button>{key}</button>
+                    {props.stockMap[key] === 1 ? <h5>Fav</h5> : null}
                 </Link>
+
+               
             </div>
         ) : 
         null
