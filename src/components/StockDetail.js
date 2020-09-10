@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 export default function StockDetail({ match, stockMap, changeFavorite }) {
 
+    // update stock detail page whenever the favorite value changes
     useEffect(() => {
-
     }, [match.params.id])
 
     return (

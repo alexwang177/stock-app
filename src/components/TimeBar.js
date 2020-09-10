@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 export default function TimeBar() {
 
-    const [date, setDate] = useState({varDate: new Date()})
-    let [open, setOpen] = useState(false)
+    // state that holds current date
+    const [date] = useState({varDate: new Date()})
 
+    // function that checks if market is open
     const isMarketOpen = () => {
 
         const day = date.varDate.getDay()
@@ -19,19 +20,15 @@ export default function TimeBar() {
 
         if(hour < 9 || hour >= 16) return false
 
-        if(hour == 9) return min >= 30
+        if(hour === 9) return min >= 30
 
         return true
     }
 
-    useEffect(() => {
-        open = isMarketOpen()
-    },[])
-
     return (
         <div>
             <h3>{`Current Time EST: ${date.varDate.toLocaleString("en-US", {timeZone: "America/New_York"})} `}</h3>
-            <h3>{open ? "Open" : "Closed"}</h3>
+            <h3>{isMarketOpen() ? "Open" : "Closed"}</h3>
         </div>
     )
 }

@@ -1,9 +1,10 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState }from 'react'
 
 import StockChart from './StockChart'
 
 export default function MainContent(props) {
 
+    // state that holds text from the input bar
     let[text, setText] = useState("")
 
     return (
