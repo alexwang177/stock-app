@@ -17,12 +17,14 @@ export default function MainContent() {
         "SSNC": 0
     })
 
+    let[text, setText] = useState("")
+
     return (
         <div>
             <div>
-                Filter <input type="text"></input>
+                Filter <input type="text" onChange={(e) => setText(e.target.value)}></input>
             </div>
-            <StockChart stockMap={stockMap}/>
+            <StockChart stockMap={stockMap} text={text}/>
         </div>
     )
 }
